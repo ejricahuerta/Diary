@@ -1,0 +1,38 @@
+﻿@model IEnumerable<Diary.ViewModels.Archivevm>
+
+<!-- month grid section -->
+<section id="month">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <hr class="section">
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 month-item">
+                    
+                    <a href="entry.html" class="month-link">
+                        <div class="caption">
+                            <div class="caption-content">
+                                <h3>Month</h3>
+                                <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                            </div>
+                        </div>
+                        <img src="~/images/month/r.jpg" id="imgs" class="img-responsive" alt="r.jpg">
+                        <script>
+                            $("#imgs").each(function () {
+                                var src = $(this).attr('src');
+                                var rand = Math.random(1, 12) * (12 - 1) + 1;
+                                $(this).attr('src', src.replace("r", "rand"));
+                            });
+                        </script>
+                    </a>
+                </div>
+
+            };
+        </div>
+    </div>
+</section>
+<!-- month grid section -->

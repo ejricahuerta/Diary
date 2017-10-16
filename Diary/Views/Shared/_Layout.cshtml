@@ -1,0 +1,121 @@
+﻿<!doctype html>
+<!--[if lt IE 7]>      <html class="no-js lt-ie9 lt-ie8 lt-ie7" lang=""> <![endif]-->
+<!--[if IE 7]>         <html class="no-js lt-ie9 lt-ie8" lang=""> <![endif]-->
+<!--[if IE 8]>         <html class="no-js lt-ie9" lang=""> <![endif]-->
+<!--[if gt IE 8]><!-->
+<html class="no-js" lang="">
+<!--<![endif]-->
+<head>
+    <meta charset="utf-8">
+    <meta name="description" content="">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>DIARY/BLOG/STORY</title>
+    @Styles.Render("~/Content/css")
+    @Scripts.Render("~/bundles/modernizr")
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
+</head>
+<body>
+    <!-- header top section -->
+    <section class="banner" role="banner">
+        <header id="header">
+            <div class="header-content clearfix">
+                <a class="logo" href="#">
+                    <img src="images/logo.png" alt="" style="width:30%; height:30%">
+                </a>
+                <nav class="navigation" role="navigation">
+                    <ul class="primary-nav">
+                        <li>
+                            <a data-toggle="modal" data-target=".login-form">Login</a>
+                        </li>
+                        <li>
+                            <a href="mainlto:hello@phdl.co">Delete</a>
+                        </li>
+                        <li>
+                            <a href="mainlto:hello@phdl.co">Settings</a>
+                        </li>
+                    </ul>
+                </nav>
+                <a href="#" class="nav-toggle">
+                    Menu
+                    <span></span>
+                </a>
+            </div>
+        </header>
+    </section>
+    <!-- header top section -->
+    <!-- header content section -->
+    <section id="hero" class="section ">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-7 col-sm-6 hero">
+                    <div class="hero-content">
+                        <h1>Diary / Blog / Story.</h1>
+                    </div>
+                    <!-- hero -->
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- header content section -->
+    @RenderBody()
+    <!-- service section -->
+    <section id="service" class="service section">
+        <div class="container">
+            <div class="row">
+                <div class="col-md-5 col-sm-6">
+                    <h4>Just bunch of words and images</h4>
+                    <p>A long distance from Korea to Canada</p>
+                </div>
+                <div class="col-md-7 col-sm-6">
+                    <div class="col-md-4 col-sm-6 service text-center">
+                        <span class="icon icon-browser"></span>
+                        <div class="service-content">
+                            <h5>Facebook</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 service text-center">
+                        <span class="icon icon-trophy"></span>
+                        <div class="service-content">
+                            <h5>GitHub</h5>
+                        </div>
+                    </div>
+                    <div class="col-md-4 col-sm-6 service text-center">
+                        <span class="glyphicon glyphicon-play" aria-hidden="true"></span>
+                        <div class="service-content">
+                            <h5>Youtube</h5>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- service section -->
+    <!-- footer section -->
+    <footer class="footer">
+        <div class="container">
+            <div class="col-md-6 left">
+                <h4>We Together</h4>
+                <p>
+                    Coffee?
+                    <a href="mailto:exricahuerta@gmail.com"> exricahuerta@gmail.com </a>
+                </p>
+            </div>
+            <div class="col-md-6 right">
+                <p>
+                    © 2017 All rights reserved
+                    <br> Made with
+                    <i class="fa fa-heart pulse"></i> by
+                    <a href="#">EXD</a>
+                </p>
+            </div>
+        </div>
+    </footer>
+    <!-- footer section -->
+    <!-- JS FILES -->
+
+    @Scripts.Render("~/bundles/jquery")
+    @Scripts.Render("~/bundles/bootstrap")
+    @RenderSection("scripts", required: false)
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.3/jquery.min.js"></script>
+</body>
+</html>
