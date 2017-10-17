@@ -9,5 +9,6 @@ namespace Diary.ViewModels
     {
         public string Texts { get; set; }
         public string User  { get; set; }
+        public DateTime Date { get; set; }
     }
 }

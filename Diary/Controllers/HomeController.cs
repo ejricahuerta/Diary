@@ -19,17 +19,9 @@ namespace Diary.Controllers
         {
             var all = em.GetEntries(id);
             if (all == null) {
-                RedirectToAction("Index");
+                View("Index");
             }
-            
             return View(all);
-        }
-
-        public ActionResult Contact()
-        {
-            ViewBag.Message = "Your contact page.";
-
-            return View();
         }
     }
 }

@@ -16,17 +16,21 @@ namespace Diary.Controllers
         }
         public List<Entryvm> GetEntries(string id)
         {
-            var a = m.Archives.Find(id);
-            var entries = m.Entries.Include("User").Where(x=> x.Archive == a).OrderByDescending(x => x.DateAdded);
+            if (id == null || string.Empty == id) {
+                return null;
+            }
             var entriesvm = new List<Entryvm>();
+            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderByDescending(x => x.DateAdded);
             foreach (var i in entries)
             {
                 entriesvm.Add(new Entryvm
                 {
                     Texts = i.Texts,
-                    User = i.User.Name
+                    User = i.User.Name,
+                    Date = i.DateAdded
                 });
             }
+
             return entriesvm;
         }
         public List<Archivevm> GetArchives()
@@ -61,5 +65,6 @@ namespace Diary.Controllers
             }
             return true;
         }
+
     }
 }
