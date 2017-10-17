@@ -19,7 +19,7 @@ namespace Diary.Models
         public int UserId { get; set; }
         [Required]
         public User User { get; set; }
-        public string ArchiveId { get; set; }
+        public int ArchiveId { get; set; }
         [Required]
         public Archive Archive { get; set; }
         public DateTime DateAdded { get; set; }
@@ -37,13 +37,13 @@ namespace Diary.Models
     {
         public Archive()
         {
-            Id = DateTime.Now.Year+"" +DateTime.Now.Month;
+            Id =  int.Parse(DateTime.Now.Year+"" +DateTime.Now.Month);
             Name = DateTime.Now.ToString("MMMM") + " " + DateTime.Now.Year.ToString();
             DateAdded = DateTime.Now;
             Entries = new List<Entry>();
         }
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Name { get; set; }
         public DateTime DateAdded { get; set; }

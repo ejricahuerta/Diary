@@ -14,9 +14,9 @@ namespace Diary.Controllers
         {
 
         }
-        public List<Entryvm> GetEntries(string id)
+        public List<Entryvm> GetEntries(int? id)
         {
-            if (id == null || string.Empty == id) {
+            if (id == null) {
                 return null;
             }
             var entriesvm = new List<Entryvm>();

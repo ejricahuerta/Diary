@@ -15,11 +15,11 @@ namespace Diary.Controllers
             return View(em.GetArchives());
         }
 
-        public ActionResult Entries(string id)
+        public ActionResult Entries(int? id)
         {
             var all = em.GetEntries(id);
             if (all == null) {
-                View("Index");
+                Redirect("Index");
             }
             return View(all);
         }
