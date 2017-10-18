@@ -14,12 +14,11 @@ namespace Diary.Controllers
         {
             return View(em.GetArchive());
         }
-
         public ActionResult Entries(int? id)
         {
             var all = em.GetEntries(id);
             if (all == null) {
-                Redirect("Index.cshtml");
+                RedirectToAction("Index");
             }
             return View(all);
         }
@@ -46,6 +45,20 @@ namespace Diary.Controllers
         [HttpGet]
         public ActionResult Create() {
             return View();
+        }
+
+        public ActionResult RemoveDatabase() {
+            if (em.RemoveDatabase()) {
+                return Content("Successfully Removed Database");
+
+            }
+            return Content("Failed!");
+        }
+        public ActionResult Load() {
+            if (em.DummyData()) {
+                return Content("Added Data");
+            }
+            return Content("Failed to Add Data!");
         }
 
     }

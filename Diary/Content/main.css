@@ -89,6 +89,7 @@ form-group {
     font-size: 14px;
     line-height: 22.4px;
     color: #6c7279;
+    
 }
 
 /* ------------------------------------------------------------------------------
@@ -421,4 +422,8 @@ form-group {
 .entry a
 {
 	color:#000;
+}
+
+textarea {
+    	color:#000;
 }

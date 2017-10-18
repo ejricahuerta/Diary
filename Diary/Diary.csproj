@@ -137,9 +137,9 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\201710170450192_init.cs" />
-    <Compile Include="Migrations\201710170450192_init.Designer.cs">
-      <DependentUpon>201710170450192_init.cs</DependentUpon>
+    <Compile Include="Migrations\201710182128565_init.cs" />
+    <Compile Include="Migrations\201710182128565_init.Designer.cs">
+      <DependentUpon>201710182128565_init.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\Classes.cs" />
@@ -206,7 +206,9 @@
     <Content Include="Scripts\respond.js" />
     <Content Include="Scripts\respond.min.js" />
     <Content Include="Scripts\_references.js" />
-    <Content Include="Web.config" />
+    <Content Include="Web.config">
+      <SubType>Designer</SubType>
+    </Content>
     <Content Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </Content>
@@ -230,8 +232,8 @@
     <None Include="Project_Readme.html" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\201710170450192_init.resx">
-      <DependentUpon>201710170450192_init.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\201710182128565_init.resx">
+      <DependentUpon>201710182128565_init.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

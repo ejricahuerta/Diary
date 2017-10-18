@@ -13,7 +13,7 @@ namespace Diary.Migrations
         
         string IMigrationMetadata.Id
         {
-            get { return "201710170450192_init"; }
+            get { return "201710182128565_init"; }
         }
         
         string IMigrationMetadata.Source
