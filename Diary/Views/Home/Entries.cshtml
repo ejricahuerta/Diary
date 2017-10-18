@@ -12,15 +12,17 @@
             @foreach (var item in Model)
             {
                 <div class="col-sm-6 month-item">
-                    <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
-                    <p>
-                        @Html.DisplayFor(modelItem => item.Texts)
-                    </p>
-                    <span>
-                        @Html.DisplayFor(modelItem => item.UserName)
-                    </span>
-                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
+                    <div class="well">
+                        <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                        <p>
+                            @Html.DisplayFor(modelItem => item.Texts)
+                        </p>
+                        <span>
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </span>
+                        @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
 
+                    </div>
                 </div>
             }
         </div>
