@@ -20,18 +20,12 @@
         <header id="header">
             <div class="header-content clearfix">
                 <a class="logo" href="#">
-                    <img src="images/logo.png" alt="" style="width:30%; height:30%">
+                    <img src="~/images/logo.png" alt="" style="width:30%; height:30%">
                 </a>
                 <nav class="navigation" role="navigation">
                     <ul class="primary-nav">
                         <li>
-                            <a data-toggle="modal" data-target=".login-form">Login</a>
-                        </li>
-                        <li>
-                            <a href="mainlto:hello@phdl.co">Delete</a>
-                        </li>
-                        <li>
-                            <a href="mainlto:hello@phdl.co">Settings</a>
+                            <a href="mainlto:exricahuerta@gmail.com">Settings</a>
                         </li>
                     </ul>
                 </nav>
@@ -49,7 +43,7 @@
             <div class="row">
                 <div class="col-md-7 col-sm-6 hero">
                     <div class="hero-content">
-                        <h1>Diary / Blog / Story.</h1>
+                        <h1>Diary. Blog. Story.</h1>
                     </div>
                     <!-- hero -->
                 </div>
@@ -57,7 +51,11 @@
         </div>
     </section>
     <!-- header content section -->
-    @RenderBody()
+    <section id="entry" class="section entry">
+        <div class="flex-container">
+            @RenderBody()
+        </div>
+    </section>
     <!-- service section -->
     <section id="service" class="service section">
         <div class="container">
@@ -112,7 +110,6 @@
     </footer>
     <!-- footer section -->
     <!-- JS FILES -->
-
     @Scripts.Render("~/bundles/jquery")
     @Scripts.Render("~/bundles/bootstrap")
     @RenderSection("scripts", required: false)

@@ -1,45 +1,27 @@
 ﻿@model IEnumerable<Diary.ViewModels.Entryvm>
 
-@{
-    ViewBag.Title = "Entries";
-}
+<section id="month">
+    <div class="container">
+        <div class="row">
+            <div class="col-lg-12 text-center">
+                <hr class="section">
+            </div>
+        </div>
+        <div class="row">
+            @foreach (var item in Model)
+            {
+                <div class="col-sm-6 month-item">
+                    <h4>@Html.DisplayFor(modelItem => item.Date)</h4>
+                    <p>
+                        @Html.DisplayFor(modelItem => item.Texts)
+                    </p>
+                    <span>
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </span>
+                    @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ })
 
-<h2>Entries</h2>
-
-<p>
-    @Html.ActionLink("Create New", "Create")
-</p>
-<table class="table">
-    <tr>
-        <th>
-            @Html.DisplayNameFor(model => model.Texts)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.User)
-        </th>
-        <th>
-            @Html.DisplayNameFor(model => model.Date)
-        </th>
-        <th></th>
-    </tr>
-
-@foreach (var item in Model) {
-    <tr>
-        <td>
-            @Html.DisplayFor(modelItem => item.Texts)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.User)
-        </td>
-        <td>
-            @Html.DisplayFor(modelItem => item.Date)
-        </td>
-        <td>
-            @Html.ActionLink("Edit", "Edit", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Details", "Details", new { /* id=item.PrimaryKey */ }) |
-            @Html.ActionLink("Delete", "Delete", new { /* id=item.PrimaryKey */ })
-        </td>
-    </tr>
-}
-
-</table>
+                </div>
+            }
+        </div>
+    </div>
+</section>

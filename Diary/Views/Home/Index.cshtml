@@ -12,26 +12,17 @@
             @foreach (var item in Model)
             {
                 <div class="col-sm-6 month-item">
-                    
-                    <a href="entry.html" class="month-link">
+                    <a class="month-link" href="@Url.Action("Entries", "Home", new { id = item.Id})">
                         <div class="caption">
                             <div class="caption-content">
-                                <h3>Month</h3>
-                                <h4>@Html.DisplayFor(modelItem => item.Name)</h4>
+                                <h3>@Html.DisplayFor(modelItem => item.Name)</h3>
                             </div>
                         </div>
-                        <img src="~/images/month/r.jpg" id="imgs" class="img-responsive" alt="r.jpg">
-                        <script>
-                            $("#imgs").each(function () {
-                                var src = $(this).attr('src');
-                                var rand = Math.random(1, 12) * (12 - 1) + 1;
-                                $(this).attr('src', src.replace("r", "rand"));
-                            });
-                        </script>
+                        <img src="~/images/month/2.jpg" id="imgs" class="img-responsive" alt="r.jpg">
                     </a>
                 </div>
 
-            };
+            }
         </div>
     </div>
 </section>

@@ -4,67 +4,46 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
-
+using AutoMapper;
 namespace Diary.Controllers
 {
     public class EntryManager
     {
         private ModelEntities m = new ModelEntities();
+
         public EntryManager()
         {
+            Mapper.Initialize(x =>
+            {
+                x.CreateMap<Entry, Entryvm>();
+                x.CreateMap<Entryvm, Entry>();
+                x.CreateMap<Archive, Archivevm>();
+            });
 
         }
-        public List<Entryvm> GetEntries(int? id)
+        public IEnumerable<Entryvm> GetEntries(int? id)
         {
-            if (id == null) {
-                return null;
-            }
-            var entriesvm = new List<Entryvm>();
-            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderByDescending(x => x.DateAdded);
-            foreach (var i in entries)
-            {
-                entriesvm.Add(new Entryvm
-                {
-                    Texts = i.Texts,
-                    User = i.User.Name,
-                    Date = i.DateAdded
-                });
-            }
+            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id);
 
-            return entriesvm;
+            return entries == null ? null : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
         }
-        public List<Archivevm> GetArchives()
+        public IEnumerable<Archivevm> GetArchive()
         {
-            var archives = m.Archives.OrderByDescending(x => x.DateAdded);
-            var archivesvm = new List<Archivevm>();
-            foreach (var i in archives)
-            {
-                archivesvm.Add(new Archivevm
-                {
-                    Name = i.Name
-                });
-            }
-            return archivesvm;
+            return Mapper.Map<IEnumerable<Archive>, IEnumerable<Archivevm>>(m.Archives);
         }
-        public bool AddEntry(Entryvm entry)
+        public Entryvm AddEntry(Entryvm entry)
         {
-            try
+            foreach (var item in m.Archives)
             {
-                var add = new Entry
-                {
-                    Texts = entry.Texts,
-                    Archive = m.Archives.SingleOrDefault(x => x.DateAdded.Month == DateTime.Now.Month),
-                    DateAdded = DateTime.Now,
-                    User = m.User.Find(entry.User),
-                };
+                if (entry.Date.Month > item.DateAdded.Month) {
+                    m.Archives.Add(new Archive());
+                    m.SaveChanges();
+                }
             }
-            catch (Exception)
-            {
 
-                return false;
-            }
-            return true;
+            var adddeditem = m.Entries.Add(Mapper.Map<Entryvm, Entry>(entry));
+            m.SaveChanges();
+            return (adddeditem == null) ? null : Mapper.Map<Entry, Entryvm>(adddeditem);
         }
-
     }
 }
