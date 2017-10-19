@@ -15,6 +15,7 @@ namespace Diary2.ViewModels
         [Required,Display(Name="Name")]
         public string UserName  { get; set; }
         public User User { get; set; }
+        [Required]
         [DisplayFormat(ApplyFormatInEditMode = true, DataFormatString = "{0:MMMM-dd-yyyy}")]
         public DateTime DateAdded { get; set; }
         public Archive Archive { get; set; }

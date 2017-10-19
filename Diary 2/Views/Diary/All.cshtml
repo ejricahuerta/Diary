@@ -16,7 +16,7 @@
             </header>
 
             <p>Three Years of Sacrifice and Love!</p>
-
+            <a class="btn btn-lg btn-danger" href=@Url.Action("Create","Diary") name="Add" title="Add Diary">Add New Diary Page</a>
         </article>
     </div>
     @foreach (var item in Model)
@@ -38,6 +38,7 @@
                         @Html.DisplayFor(modelItem => item.Texts)
                         <br />
                         <br />
+                        <i class="fa fa-heart-o" aria-hidden="true"></i>
                         @Html.DisplayFor(modelItem => item.UserName)
                     </article>
                 </section>

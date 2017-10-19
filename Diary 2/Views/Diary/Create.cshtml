@@ -1,0 +1,82 @@
+﻿@model Diary2.ViewModels.Entryvm
+
+
+<div class="contat-from-wrapper">
+    <div id="message"></div>
+    @using (Html.BeginForm())
+    {
+        @Html.AntiForgeryToken()
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="row">
+
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                @Html.EditorFor(model => model.DateAdded, new { htmlAttributes = new { @title = "dd-mm-yyyy", @name = "date", @id = "date", @type = "text", @placeholder = "Date" } })
+                @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
+            </div>
+        </div>
+        @Html.TextAreaFor(model => model.Texts,  new { title = "Enter Page Content", name = "Page", id = "page", style = "height: 100%", cols = "", rows = "20", placeholder = "Today's Page" })
+        @Html.ValidationMessageFor(model => model.Texts, "", new { @class = "text-danger" })
+
+        <div class="clearfix"><br /></div>
+
+        <div class="row">
+            <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
+                @Html.EditorFor(model => model.UserName,  new { name = "name", id = "name", type = "text", placeholder = "Name" } )
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="clearfix"></div>
+
+        <input title="add page" name="page" type="submit" value="Add Page">
+
+        <div class="clearfix"><br/></div>
+        <div id="simple-msg"></div>
+        <div>
+            <a class="btn btn-default" title="back"  name="back" href=@Url.Action("Index","Home")>Back to Archives</a>
+        </div>
+    }
+
+</div>
+
+@*@using (Html.BeginForm())
+{
+    @Html.AntiForgeryToken()
+
+    <div class="form-horizontal">
+        <h4>Entryvm</h4>
+        <hr />
+        @Html.ValidationSummary(true, "", new { @class = "text-danger" })
+        <div class="form-group">
+            @Html.LabelFor(model => model.Texts, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.Texts, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.Texts, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.UserName, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.UserName, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            @Html.LabelFor(model => model.DateAdded, htmlAttributes: new { @class = "control-label col-md-2" })
+            <div class="col-md-10">
+                @Html.EditorFor(model => model.DateAdded, new { htmlAttributes = new { @class = "form-control" } })
+                @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-md-offset-2 col-md-10">
+                <input type="submit" value="Create" class="btn btn-default" />
+            </div>
+        </div>
+    </div>
+}*@
+
+

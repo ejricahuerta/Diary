@@ -1,4 +1,5 @@
 ﻿using Diary2.Controllers;
+using Diary2.ViewModels;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -38,17 +39,21 @@ namespace Diary_2.Controllers
 
         // POST: Diary/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Entryvm entry)
         {
-            try
+            if (!ModelState.IsValid)
             {
-                // TODO: Add insert logic here
-
-                return RedirectToAction("Index");
+                return View(entry);
             }
-            catch
+            var addedItem = m.AddEntry(entry);
+
+            if (addedItem == null)
             {
-                return View();
+                return View(entry);
+            }
+            else
+            {
+                return RedirectToAction("All","Diary",new { id = addedItem.Archive.Id});
             }
         }
 
