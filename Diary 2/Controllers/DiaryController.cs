@@ -14,6 +14,7 @@ namespace Diary_2.Controllers
         // GET: Diary
         public ActionResult All(int? id)
         {
+
             var a = m.GetArchive().FirstOrDefault(x => x.Id == id);
             if (a != null) {
             ViewData["Archive"] = a.Name;

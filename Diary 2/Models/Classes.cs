@@ -50,4 +50,8 @@ namespace Diary2.Models
         public DateTime DateAdded { get; set; }
         public ICollection<Entry> Entries { get; set; }
     }
+    public class Media
+    {
+
+    }
 }

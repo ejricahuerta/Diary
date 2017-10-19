@@ -179,24 +179,9 @@
     <Content Include="ApplicationInsights.config">
       <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
     </Content>
-    <Content Include="images\about-images\about-image-1.jpg" />
-    <Content Include="images\about-images\about-image-2.jpg" />
-    <Content Include="images\about-images\about-image-3.jpg" />
-    <Content Include="images\blog-images\blog-1.jpg" />
-    <Content Include="images\blog-images\blog-2.jpg" />
-    <Content Include="images\blog-images\blog-3.jpg" />
-    <Content Include="images\blog-images\blog-4.jpg" />
-    <Content Include="images\blog-images\blog-5.jpg" />
-    <Content Include="images\blog-images\blog-details-image.jpg" />
-    <Content Include="images\blog-images\image-1.jpg" />
-    <Content Include="images\blog-images\image-2.jpg" />
-    <Content Include="images\blog-images\image-3.jpg" />
-    <Content Include="images\blog-images\13.jpg" />
-    <Content Include="images\blog-images\14.jpg" />
-    <Content Include="images\blog-images\15.jpg" />
-    <Content Include="images\blog-images\16.jpg" />
-    <Content Include="images\blog-images\17.jpg" />
-    <Content Include="images\blog-images\18.jpg" />
+    <Content Include="images\blog-images\3.jpg" />
+    <Content Include="images\blog-images\1.jpg" />
+    <Content Include="images\blog-images\2.jpg" />
     <Content Include="images\favicon.ico" />
     <Content Include="images\favicon.png" />
     <Content Include="images\home-images\1.jpg" />
@@ -211,11 +196,6 @@
     <Content Include="images\home-images\7.jpg" />
     <Content Include="images\home-images\8.jpg" />
     <Content Include="images\home-images\9.jpg" />
-    <Content Include="images\home-images\image-1.jpg" />
-    <Content Include="images\home-images\image-2.jpg" />
-    <Content Include="images\home-images\image-3.jpg" />
-    <Content Include="images\home-images\image-4.jpg" />
-    <Content Include="images\home-images\image-5.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\work\works-image-1.jpg" />
     <Content Include="images\work\works-image-2.jpg" />

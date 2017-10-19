@@ -25,10 +25,9 @@
 
     @foreach (var item in Model)
     {
-
         <section class="col-xs-12 col-sm-6 col-md-6 col-lg-6 grid">
             <figure class="effect-oscar">
-                <img src="~/images/home-images/10.jpg" alt="" class="img-responsive" />
+                <img src=@Url.Content(item.GenerateArchivePhotos()) alt="~/images/home-images/1.jpg" class="img-responsive" />
                 <figcaption>
                     <h2>@Html.DisplayFor(modelItem => item.Name)</h2>
                     @Html.ActionLink("View More", "../Diary/All", new { id = item.Id })

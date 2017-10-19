@@ -21,6 +21,7 @@ namespace Diary2.Controllers
                 x.CreateMap<Archive, Archivevm>();
             });
 
+
             //foreach (var item in m.Archives)
             //{
             //    if (item.DateAdded.Month < DateTime.Now.Month)
@@ -34,10 +35,11 @@ namespace Diary2.Controllers
             //        m.SaveChanges();
             //    }
             //}
+
         }
         public IEnumerable<Entryvm> GetEntries(int? id)
         {
-            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderBy( x=> x.DateAdded.Day);
+            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderBy(x => x.DateAdded.Day);
             return (id == null) ? Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(m.Entries) : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
         }
         public IEnumerable<Archivevm> GetArchive()
@@ -70,6 +72,8 @@ namespace Diary2.Controllers
 
 
 
+
+
         #region DummyData
         public bool RemoveDatabase()
         {
@@ -92,7 +96,8 @@ namespace Diary2.Controllers
                 m.SaveChanges();
                 success = true;
             }
-            if (m.Archives.Count() == 0) {
+            if (m.Archives.Count() == 0)
+            {
                 m.Archives.Add(new Archive());
                 m.SaveChanges();
                 success = true;
