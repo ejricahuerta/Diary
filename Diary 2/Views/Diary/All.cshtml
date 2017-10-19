@@ -1,10 +1,6 @@
 ﻿@model IEnumerable<Diary2.ViewModels.Entryvm>
 
 
-
-
-
-
 <div class="row">
 
 
@@ -15,41 +11,40 @@
 
             <header>
 
-                <h2><span>News</span> Updates from studio</h2>
+                <h2>@ViewData["archive"]</h2>
 
             </header>
 
-            <p>Get all information about our studio from latest news posts & updates page.</p>
+            <p>Three Years of Sacrifice and Love!</p>
 
         </article>
-
-        <ul class="grid-lod effect-2" id="grid">
-
-            @foreach (var item in Model)
-            {
-                <li>
-                    <section class="blog-content">
-                        <a href="blog-details.html">
-                            <figure>
-                                <div class="post-date">
-                                    <span>@Html.DisplayFor(modelItem => item.Date.Day)</span>
-                                </div>
-                                <img src="~/images/blog-images/blog-2.jpg" alt="" class="img-responsive" />
-
-                            </figure>
-                        </a>
-                        <article>
-                            @Html.DisplayFor(modelItem => item.Texts)
-                            @Html.DisplayFor(modelItem => item.UserName)
-                        </article>
-                    </section>
-
-                </li>
-            }
-
-        </ul>
-
     </div>
+    @foreach (var item in Model)
+            {
+        <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
+            <div class="grid-lod effect-2" id="grid">
 
+                <section class="blog-content">
+                    <a href="blog-details.html">
+                        <figure>
+                            <div class="post-date">
+                                <span>@Html.DisplayFor(modelItem => item.DateAdded.Day)</span>
+                            </div>
+                            <img src="~/images/blog-images/blog-2.jpg" alt="" class="img-responsive" />
+
+                        </figure>
+                    </a>
+                    <article>
+                        @Html.DisplayFor(modelItem => item.Texts)
+                        @Html.DisplayFor(modelItem => item.UserName)
+                    </article>
+                </section>
+
+
+            </div>
+
+        </div>
+
+    }
 
 </div>

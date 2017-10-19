@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diary2.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,9 +9,10 @@ namespace Diary_2.Controllers
 {
     public class HomeController : Controller
     {
+        private EntryManager m = new EntryManager();
         public ActionResult Index()
         {
-            return View();
+            return View(m.GetArchive());
         }
 
         public ActionResult About()

@@ -13,12 +13,15 @@ namespace Diary_2.Controllers
         // GET: Diary
         public ActionResult All(int? id)
         {
-            var all = m.GetEntries(id);
-            if (all == null)
-            {
-                RedirectToRoute("Index");
+            var a = m.GetArchive().FirstOrDefault(x => x.Id == id);
+            if (a != null) {
+            ViewData["Archive"] = a.Name;
             }
-            return View(all);
+            else
+            {
+                ViewData["Archive"] = "All Diary Entry";
+            }
+            return View(m.GetEntries(id));
         }
 
         // GET: Diary/Details/5

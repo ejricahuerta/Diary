@@ -21,25 +21,24 @@ namespace Diary2.Controllers
                 x.CreateMap<Archive, Archivevm>();
             });
 
-            foreach (var item in m.Archives)
-            {
-                if (item.DateAdded.Month < DateTime.Now.Month)
-                {
-                    m.Archives.Add(
-                        new Archive
-                        {
-                            Name = DateTime.Now.ToString("MMMM") + " " + DateTime.Now.Year.ToString(),
-                            DateAdded = DateTime.Now
-                        });
-                    m.SaveChanges();
-                }
-            }
+            //foreach (var item in m.Archives)
+            //{
+            //    if (item.DateAdded.Month < DateTime.Now.Month)
+            //    {
+            //        m.Archives.Add(
+            //            new Archive
+            //            {
+            //                Name = DateTime.Now.ToString("MMMM") + " " + DateTime.Now.Year.ToString(),
+            //                DateAdded = DateTime.Now
+            //            });
+            //        m.SaveChanges();
+            //    }
+            //}
         }
         public IEnumerable<Entryvm> GetEntries(int? id)
         {
             var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id);
-
-            return (entries == null) ? null : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
+            return (entries == null) ? Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(m.Entries) : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
         }
         public IEnumerable<Archivevm> GetArchive()
         {
@@ -47,21 +46,21 @@ namespace Diary2.Controllers
         }
         public Entryvm AddEntry(Entryvm entry)
         {
-            if (entry.Date == null)
+            if (entry.DateAdded == null)
             {
-                entry.Date = DateTime.Now;
+                entry.DateAdded = DateTime.Now;
             }
             var user = m.User.SingleOrDefault(x => x.Name == entry.UserName);
             foreach (var item in m.Archives)
             {
-                if (entry.Date.Month > item.DateAdded.Month)
+                if (entry.DateAdded.Month > item.DateAdded.Month)
                 {
                     m.Archives.Add(new Archive());
                 }
             }
             entry.User = user;
 
-            var archive = m.Archives.FirstOrDefault(x => x.DateAdded.Month == entry.Date.Month);
+            var archive = m.Archives.FirstOrDefault(x => x.DateAdded.Month == entry.DateAdded.Month);
             entry.Archive = archive;
 
             var adddeditem = m.Entries.Add(Mapper.Map<Entryvm, Entry>(entry));
