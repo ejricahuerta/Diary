@@ -10,10 +10,11 @@ namespace Diary.Models
     {
         public Entry()
         {
+            Id = int.Parse(DateTime.Now.Year.ToString() + "" + DateTime.Now.Month.ToString() + "" + DateTime.Now.Day.ToString());
             DateAdded = DateTime.Now;
         }
         [Key]
-        public string Id { get; set; }
+        public int Id { get; set; }
         [Required]
         public string Texts  { get; set; }
         public int UserId { get; set; }

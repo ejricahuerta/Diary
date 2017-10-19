@@ -21,7 +21,7 @@ namespace Diary.Migrations
                 "dbo.Entries",
                 c => new
                     {
-                        Id = c.String(nullable: false, maxLength: 128),
+                        Id = c.Int(nullable: false, identity: true),
                         Texts = c.String(nullable: false),
                         UserId = c.Int(nullable: false),
                         ArchiveId = c.Int(nullable: false),
