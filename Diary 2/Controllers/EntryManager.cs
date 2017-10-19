@@ -86,6 +86,7 @@ namespace Diary2.Controllers
                 if (entry.DateAdded.Month > item.DateAdded.Month)
                 {
                     m.Archives.Add(new Archive());
+                    m.SaveChanges();
                 }
             }
             entry.User = user;
