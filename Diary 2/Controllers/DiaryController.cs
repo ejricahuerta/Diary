@@ -1,4 +1,5 @@
-﻿using System;
+﻿using Diary2.Controllers;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,10 +9,16 @@ namespace Diary_2.Controllers
 {
     public class DiaryController : Controller
     {
+        private EntryManager m = new EntryManager();
         // GET: Diary
-        public ActionResult All()
+        public ActionResult All(int? id)
         {
-            return View();
+            var all = m.GetEntries(id);
+            if (all == null)
+            {
+                RedirectToRoute("Index");
+            }
+            return View(all);
         }
 
         // GET: Diary/Details/5
