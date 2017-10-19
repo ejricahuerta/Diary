@@ -40,7 +40,7 @@ namespace Diary2.Controllers
         public IEnumerable<Entryvm> GetEntries(int? id)
         {
             var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderBy(x => x.DateAdded.Day);
-            return (id == null) ? Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(m.Entries) : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
+            return (id == null) ? Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(m.Entries.Include("User")).OrderByDescending(x => x.DateAdded.Day).OrderByDescending(x=> x.DateAdded.Month) : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
         }
 
 

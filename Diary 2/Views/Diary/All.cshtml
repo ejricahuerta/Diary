@@ -13,6 +13,7 @@
 
                 <h2>@ViewData["archive"]</h2>
 
+
             </header>
 
             <p>Three Years of Sacrifice and Love!</p>
@@ -30,6 +31,7 @@
                         <figure>
                             <div class="post-date">
                                 <span>@Html.DisplayFor(modelItem => item.DateAdded.Day)</span>
+                                @Html.DisplayFor(modelItem => item.DateAdded.Month)
                             </div>
                             
                             <img src=@Url.Content(item.DiaryPhotos.ElementAt(r.Next(1,3))) class="img-responsive" />
