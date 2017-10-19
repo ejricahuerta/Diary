@@ -1,5 +1,8 @@
 ﻿@model Diary2.ViewModels.Entryvm
 
+@{
+    ViewBag.Title = "Edit";
+}
 
 <div class="contat-from-wrapper">
     <div id="message"></div>
@@ -14,26 +17,26 @@
                 @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
             </div>
         </div>
-        @Html.TextAreaFor(model => model.Texts,  new { title = "Enter Page Content", name = "Page", id = "page", style = "height: 100%", cols = "", rows = "20", placeholder = "Today's Page" })
+        @Html.TextAreaFor(model => model.Texts, new { title = "Enter Page Content", name = "Page", id = "page", style = "height: 100%", cols = "", rows = "20", placeholder = "Today's Page" })
         @Html.ValidationMessageFor(model => model.Texts, "", new { @class = "text-danger" })
 
         <div class="clearfix"><br /></div>
 
         <div class="row">
             <div class="col-md-6 col-lg-6 col-sm-6 col-xs-12">
-                @Html.EditorFor(model => model.UserName,  new { name = "name", id = "name", type = "text", placeholder = "Name" } )
+                @Html.EditorFor(model => model.UserName, new { name = "name", id = "name", type = "text", placeholder = "Name" })
                 @Html.ValidationMessageFor(model => model.UserName, "", new { @class = "text-danger" })
             </div>
         </div>
 
         <div class="clearfix"></div>
 
-        <input title="add page" name="page" type="submit" value="Add Page">
+        <input title="update page" name="update" type="submit" value="Update">
 
-        <div class="clearfix"><br/></div>
+        <div class="clearfix"><br /></div>
         <div id="simple-msg"></div>
         <div>
-            <a class="btn btn-default" title="back"  name="back" href=@Url.Action("Index","Home")>Back to Archives</a>
+            <a class="btn btn-default" title="back" name="back" href=@Url.Action("Index","Home")>Back to Archives</a>
         </div>
     }
 
