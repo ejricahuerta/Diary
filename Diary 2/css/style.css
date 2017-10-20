@@ -273,7 +273,18 @@ section.blog-content figure .post-date{ text-align:center; color:#FFF; font-weig
 
 section.blog-content figure .post-date span{ font-size:50px; line-height:35px; display:block}
 
-section.blog-content  article{ font-size:21px; line-height:30px; color:#FFF;  font-weight:800; color:#343434; padding-left:42px; padding-top:33px; padding-bottom:31px;}
+    section.blog-content article {
+        font-size: 21px;
+        line-height: 30px;
+        color: #FFF;
+        font-weight: 800;
+        color: #343434;
+        padding-left: 42px;
+        padding-right: 42px;
+        padding-top: 33px;
+        padding-bottom: 31px;
+        text-align :justify;
+    }
 
 section.blog-content:hover figure img{ opacity:0.5}
 
@@ -384,9 +395,3 @@ article[role="pge-title-content"].contact-header p a:hover{color:#fb5353; text-d
 .commentys-form input[type="button"]{ padding:0 36px; text-transform:uppercase; display:inline-block; font-size:21px; line-height:60px; color:#FFF; font-weight: bold; text-align:center; border:none; outline:none; background-color:#fb5353; margin-top:50px}
 
 .commentys-form input[type="button"]:hover{ background-color:#ff5c5c}
-
-#fixedbutton {
-    position: fixed;
-    bottom: 0px;
-    right: 0px; 
-}

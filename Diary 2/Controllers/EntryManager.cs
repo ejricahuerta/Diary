@@ -40,39 +40,44 @@ namespace Diary2.Controllers
         }
         public IEnumerable<Entryvm> GetEntries(int? id)
         {
-            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderBy(x => x.DateAdded.Day);
-            return (id == null) ? Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(m.Entries.Include("User")).OrderByDescending(x => x.DateAdded.Day).OrderByDescending(x=> x.DateAdded.Month) : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
+            var entries = m.Entries.Include("User").Where(x => x.ArchiveId == id).OrderByDescending(x => x.DateAdded.Day);
+            return (id == null) ? Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(m.Entries.Include("User")).OrderByDescending(x => x.DateAdded.Day).OrderByDescending(x => x.DateAdded.Month) : Mapper.Map<IEnumerable<Entry>, IEnumerable<Entryvm>>(entries);
         }
 
 
-        public Entryvm GetEntryById(int id) {
-            var o =  m.Entries.Include("User").SingleOrDefault( e => e.Id == id);
+        public Entryvm GetEntryById(int id)
+        {
+            var o = m.Entries.Include("User").SingleOrDefault(e => e.Id == id);
             return (o == null) ? null : Mapper.Map<Entry, Entryvm>(o);
         }
 
-        public Entryvm EditEntry(Entryvm entry) {
+        public Entryvm EditEntry(Entryvm entry)
+        {
             var user = m.User.SingleOrDefault(x => x.Name == entry.UserName);
             var archive = m.Archives.SingleOrDefault(x => x.DateAdded.Month == entry.DateAdded.Month);
             var o = m.Entries.Find(entry.Id);
             o.Archive = archive;
             o.User = user;
-            if (o == null) {
+            if (o == null)
+            {
                 return null;
             }
-            else {
+            else
+            {
                 m.Entry(o).CurrentValues.SetValues(entry);
                 m.SaveChanges();
             }
             return Mapper.Map<Entry, Entryvm>(o);
-        
+
         }
         public IEnumerable<Archivevm> GetArchive()
         {
             return Mapper.Map<IEnumerable<Archive>, IEnumerable<Archivevm>>(m.Archives);
         }
 
-        public Archivevm GetArchiveId(int id) {
-            var a = m.Archives.SingleOrDefault(e=> e.Id == id);
+        public Archivevm GetArchiveId(int id)
+        {
+            var a = m.Archives.SingleOrDefault(e => e.Id == id);
             return Mapper.Map<Archive, Archivevm>(a);
         }
         public Entryvm AddEntry(Entryvm entry)
@@ -82,13 +87,11 @@ namespace Diary2.Controllers
                 entry.DateAdded = DateTime.Now;
             }
             var user = m.User.SingleOrDefault(x => x.Name == entry.UserName);
-            foreach (var item in m.Archives)
+            if (m.Archives.SingleOrDefault(x => x.DateAdded.Month == DateTime.Now.Month) == null)
             {
-                if (entry.DateAdded.Month > item.DateAdded.Month)
-                {
-                    m.Archives.Add(new Archive());
-                }
+                m.Archives.Add(new Archive());
             }
+
             entry.User = user;
 
             var archive = m.Archives.FirstOrDefault(x => x.DateAdded.Month == entry.DateAdded.Month);

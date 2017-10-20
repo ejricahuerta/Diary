@@ -29,7 +29,7 @@ namespace Diary2.ViewModels
                  "~/images/blog-images/2.jpg",
                  "~/images/blog-images/3.jpg"
        };
-        public string GenerateDiaryPhoto()
+        public  string GenerateDiaryPhoto()
         {
             Random ran = new Random();
             return DiaryPhotos.ElementAt(ran.Next(3));

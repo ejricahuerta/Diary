@@ -21,7 +21,7 @@
         </article>
     </div>
     @foreach (var item in Model)
-            {
+    {
         Random r = new Random();
         <div class="col-xs-12 col-sm-6 col-md-6 col-lg-6 ">
             <div class="grid-lod effect-2" id="grid">
@@ -30,22 +30,32 @@
                     <a href=@Url.Action("Edit","Diary",new { id = item.Id})>
                         <figure>
                             <div class="post-date">
-                                
+
                                 <span>@Html.DisplayFor(modelItem => item.DateAdded.Day)</span>
-                                <small>@Html.DisplayFor(modelItem =>  item.DateAdded.Month)</small>
+                                <small>@Html.DisplayFor(modelItem => item.DateAdded.Month)</small>
                             </div>
-                            
-                            <img  title="Click to Edit" src=@Url.Content(item.DiaryPhotos.ElementAt(r.Next(1,3))) class="img-responsive" />
+
+                            <img title="Click to Edit" src=@Url.Content(item.DiaryPhotos.ElementAt(r.Next(1,3))) class="img-responsive" />
 
                         </figure>
                     </a>
-                    
+
                     <article>
-                        @Html.DisplayFor(modelItem => item.Texts)
-                        <br />
-                        <br />
-                        <i class="fa fa-heart-o" aria-hidden="true"></i>
-                        @Html.DisplayFor(modelItem => item.UserName)
+                        <div class="justify">
+                            @Html.DisplayFor(modelItem => item.Texts)
+                            <br />
+                            <br />
+                            @if (item.DateAdded.Day != DateTime.Now.Day)
+                            {
+                                <i class="fa fa-heart" aria-hidden="true"></i>
+                            }
+                            else
+                            {
+                                <i class="glyphicon glyphicon-pencil" aria-hidden="true" ></i>
+
+                            }
+                            @Html.DisplayFor(modelItem => item.UserName)
+                        </div>
                     </article>
                 </section>
 
