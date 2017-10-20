@@ -198,6 +198,7 @@
     <Content Include="images\home-images\7.jpg" />
     <Content Include="images\home-images\8.jpg" />
     <Content Include="images\home-images\9.jpg" />
+    <Content Include="images\home-images\abstract_bg.jpg" />
     <Content Include="images\logo.png" />
     <Content Include="images\work\works-image-1.jpg" />
     <Content Include="images\work\works-image-2.jpg" />
@@ -258,8 +259,8 @@
   <ItemGroup>
     <None Include="Properties\PublishProfiles\Diary2017 - Web Deploy.pubxml" />
     <Content Include="Views\Diary\Create.cshtml" />
-    <Content Include="Views\Account\Login.cshtml" />
     <Content Include="Views\Diary\Edit.cshtml" />
+    <Content Include="Views\Account\Login.cshtml" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

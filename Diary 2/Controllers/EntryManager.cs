@@ -5,6 +5,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Web;
 using AutoMapper;
+using Diary_2.Controllers;
 
 namespace Diary2.Controllers
 {
@@ -86,7 +87,6 @@ namespace Diary2.Controllers
                 if (entry.DateAdded.Month > item.DateAdded.Month)
                 {
                     m.Archives.Add(new Archive());
-                    m.SaveChanges();
                 }
             }
             entry.User = user;

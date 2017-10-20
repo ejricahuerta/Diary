@@ -14,7 +14,7 @@
                 @Html.ValidationMessageFor(model => model.DateAdded, "", new { @class = "text-danger" })
             </div>
         </div>
-        @Html.TextAreaFor(model => model.Texts,  new { title = "Enter Page Content", name = "Page", id = "page", style = "height: 100%", cols = "", rows = "20", placeholder = "Today's Page" })
+        @Html.TextAreaFor(model => model.Texts,  new { title = "Enter Page Content", name = "Page", id = "page", style = "height: 90%", cols = "", rows = "20", placeholder = "Today's Page" })
         @Html.ValidationMessageFor(model => model.Texts, "", new { @class = "text-danger" })
 
         <div class="clearfix"><br /></div>

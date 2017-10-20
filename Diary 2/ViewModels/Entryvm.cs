@@ -34,5 +34,6 @@ namespace Diary2.ViewModels
             Random ran = new Random();
             return DiaryPhotos.ElementAt(ran.Next(3));
         }
+
     }
 }
