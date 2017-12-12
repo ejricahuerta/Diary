@@ -23,19 +23,20 @@ namespace Diary2.Controllers
             });
 
 
-            //foreach (var item in m.Archives)
-            //{
-            //    if (item.DateAdded.Month < DateTime.Now.Month)
-            //    {
-            //        m.Archives.Add(
-            //            new Archive
-            //            {
-            //                Name = DateTime.Now.ToString("MMMM") + " " + DateTime.Now.Year.ToString(),
-            //                DateAdded = DateTime.Now
-            //            });
-            //        m.SaveChanges();
-            //    }
-            //}
+            foreach (var item in m.Archives)
+            {
+                if (item.DateAdded.Month <= DateTime.Now.Month)
+                {
+                    m.Archives.Add(
+                            new Archive
+                            {
+                                Name = DateTime.Now.ToString("MMMM") + " " + DateTime.Now.Year.ToString(),
+                                DateAdded = DateTime.Now
+                            });
+                    break;
+                }
+            }
+            m.SaveChanges();
 
         }
         public IEnumerable<Entryvm> GetEntries(int? id)
