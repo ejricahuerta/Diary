@@ -21,11 +21,8 @@ namespace Diary2.Controllers
                 x.CreateMap<Entryvm, Entry>();
                 x.CreateMap<Archive, Archivevm>();
             });
-
-
-            foreach (var item in m.Archives)
-            {
-                if (item.DateAdded.Month <= DateTime.Now.Month)
+            var last = m.Archives.Single(x => x.DateAdded.Month + 1 == (DateTime.Now.Month));
+             if (last == null)
                 {
                     m.Archives.Add(
                             new Archive
@@ -33,10 +30,9 @@ namespace Diary2.Controllers
                                 Name = DateTime.Now.ToString("MMMM") + " " + DateTime.Now.Year.ToString(),
                                 DateAdded = DateTime.Now
                             });
-                    break;
-                }
-            }
             m.SaveChanges();
+                }
+            
 
         }
         public IEnumerable<Entryvm> GetEntries(int? id)
